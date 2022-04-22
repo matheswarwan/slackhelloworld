@@ -1,4 +1,4 @@
-const { App } = require('@slack/bolt');
+/* const { App } = require('@slack/bolt');
 
 const xappToken = 'xap'+'p'+'-1-A03AD1LNM63-3424578434515'+'-10729cff994696'+'44b7e7ba0f171cd20bd13bbae7f66f5d6961abe64df7f7ab4a';
 
@@ -15,13 +15,22 @@ app.message('hello', async ({ message, say }) => {
   });
   
 
-
-/* Add functionality here */
-
 (async () => {
   // Start the app
   await app.start(process.env.PORT || 3000);
 
   console.log('⚡️ Bolt app is running!');
 })();
+*/
 
+const express = require('express')
+const app = express() 
+
+app.get('/hello', (req, res)=> {
+    res.status(200).send('hello');
+    return;
+});
+
+app.listen({port:process.env.PORT ||  8080}, () => {
+    console.log('server is running ')
+})
