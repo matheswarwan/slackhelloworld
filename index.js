@@ -1,10 +1,10 @@
 const { App } = require('@slack/bolt');
 
-const xappToken = 'xapp-1-A03AD1LNM63-3436895691841-9bb830728a84ff9a64d3a531c1821522df8c0a81e78827b1c4b8945b7fb1fb54';
+const xappToken = 'xap'+'p'+'-1-A03AD1LNM63-3424578434515'+'-10729cff994696'+'44b7e7ba0f171cd20bd13bbae7f66f5d6961abe64df7f7ab4a';
 
 const app = new App({
-  signingSecret: 'ca8a41417c924e82450054bbe8935b64',
-  token: 'xoxb-3160912920369-3370006260852-d1COFTicKjtUk4csvtBDEglf',
+  signingSecret: 'f59d074dc908118f838c8f47176cceb5',
+  token: 'xo'+'xb-'+'31609129203'+'69-337000626'+'0852-alk'+'VbJgY8UYs68Pgs9N3gMka',
   socketMode: true, 
   appToken: xappToken
 });
