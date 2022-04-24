@@ -46,18 +46,9 @@ define(["postmonger"], function (Postmonger) {
 
       fetch(userURL, {
         "headers": {
-          "accept": "*/*",
-          "accept-language": "en-US,en;q=0.9,ta;q=0.8",
           "authorization": authHeader,
-          "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
-          "sec-ch-ua-mobile": "?0",
-          "sec-ch-ua-platform": "\"macOS\"",
-          "sec-fetch-dest": "empty",
-          "sec-fetch-mode": "cors",
-          "sec-fetch-site": "none"
+          "sec-fetch-mode": "cors"
         },
-        "referrerPolicy": "strict-origin-when-cross-origin",
-        "body": null,
         "method": "GET",
         "mode": "cors",
         
