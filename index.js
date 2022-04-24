@@ -1,36 +1,21 @@
-/* const { App } = require('@slack/bolt');
+var http = require('http');
+var fs = require('fs');
+var url = require('url');
 
-const xappToken = 'xap'+'p'+'-1-A03AD1LNM63-3424578434515'+'-10729cff994696'+'44b7e7ba0f171cd20bd13bbae7f66f5d6961abe64df7f7ab4a';
-
-const app = new App({
-  signingSecret: 'f59d074dc908118f838c8f47176cceb5',
-  token: 'xo'+'xb-'+'31609129203'+'69-337000626'+'0852-alk'+'VbJgY8UYs68Pgs9N3gMka',
-  socketMode: true, 
-  appToken: xappToken
-});
-
-app.message('hello', async ({ message, say }) => {
-    // say() sends a message to the channel where the event was triggered
-    await say(`Hey there <@${message.user}>!`);
+http.createServer(function (req, res) {
+  var q = url.parse(req.url, true);
+  var filename = "." + (q.pathname != '/'?q.pathname:'/index.html');
+  //console.log('path name - ' + q.pathname);
+  console.log('file requested - ' + filename);
+  fs.readFile(filename, function(err, data) {
+    if (err) {
+      res.writeHead(404, {'Content-Type': 'text/html'});
+      return res.end("404 Not Found. Try with /execute or /save");
+    } 
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    res.write(data);
+    return res.end();
   });
-  
+}).listen(process.env.PORT || 8080);
 
-(async () => {
-  // Start the app
-  await app.start(process.env.PORT || 3000);
-
-  console.log('⚡️ Bolt app is running!');
-})();
-*/
-//
-const express = require('express')
-const app = express() 
-
-app.get('/hello', (req, res)=> {
-    res.status(200).send('hello');
-    return;
-});
-
-app.listen({port:process.env.PORT ||  8080}, () => {
-    console.log('server is running ')
-})
+console.log('listening on 8080 OR ' + process.env.PORT )
