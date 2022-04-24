@@ -4,7 +4,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Custom Journey Builder Activity</title>
-
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/require.js"></script>
     <script type="text/javascript">
@@ -35,16 +36,18 @@
   </head>
   <body>
     <div id="step1" class="step">
-      Select your SMS message:
+      Notify:
       <select id="select1">
         <option value="">Select an option</option>
-        <option value="someMessage">Some SMS</option>
+        <option value="optChannel">Channel</option>
+        <option value="optUser">User</option>
+        <!-- <option value="someMessage">Some SMS</option>
         <option value="anotherMessage">Another SMS</option>
         <option value="thirdMessage">Third SMS</option>
-        <option value="unknownMessage">Unknown SMS</option>
+        <option value="unknownMessage">Unknown SMS</option>-->
       </select>
-
-      <button id="toggleLastStep">Toggle Last Step</button>
+      <div id="channelUserDetails"></div>
+      <!-- <button id="toggleLastStep">Toggle Last Step</button> -->
     </div>
     <div id="step2" class="step">
       Here's a second page with some info on it.

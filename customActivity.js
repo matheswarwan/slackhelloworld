@@ -39,6 +39,42 @@ define(["postmonger"], function (Postmonger) {
       });
 
       $("#message").html(message);
+      /* Call slack and fill user details in channelUserDetails */
+      document.getElementById('channelUserDetails').innerHTML = "<br> User details <br> ";
+      var userURL = 'https://slack.com/api/users.list';
+      var authHeader = 'Bearer '+'xoxb-'+'3160912920369-'+'3370006260852'+'-alkVbJ'+'gY8UYs68Pgs9N3gMka';
+
+      fetch(userURL, {
+        "headers": {
+          "accept": "*/*",
+          "accept-language": "en-US,en;q=0.9,ta;q=0.8",
+          "authorization": authHeader,
+          "sec-ch-ua": "\" Not A;Brand\";v=\"99\", \"Chromium\";v=\"100\", \"Google Chrome\";v=\"100\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\"",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "none"
+        },
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": null,
+        "method": "GET",
+        "mode": "cors",
+        "credentials": "include"
+      }).then(res => res.json())
+      .then(function(res) { console.log(res); document.getElementById('channelUserDetails').innerHTML = document.getElementById('channelUserDetails').innerHTML  + JSON.stringify(res) });
+      
+
+      /* fetch(userURL, {
+        method: 'GET',
+        headers: {
+          'Authorization': authHeader,
+          'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+        .then(function(res) { console.log(res); document.getElementById('channelUserDetails').innerHTML = document.getElementById('channelUserDetails').innerHTML  + JSON.stringify(res) });
+      */ 
+
     });
 
     // Toggle step 4 active/inactive
