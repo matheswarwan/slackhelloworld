@@ -60,7 +60,7 @@ define(["postmonger"], function (Postmonger) {
         "body": null,
         "method": "GET",
         "mode": "cors",
-        "credentials": "include"
+        
       }).then(res => res.json())
       .then(function(res) { console.log(res); document.getElementById('channelUserDetails').innerHTML = document.getElementById('channelUserDetails').innerHTML  + JSON.stringify(res) });
       
